@@ -14,74 +14,75 @@ public class DBHandler extends SQLiteOpenHelper {
     
     private static final String DATABASE_NAME = "doctrine.db";
     private static final int DATABASE_VERSION = 1;
+    public static boolean langIsEnglish = true;
 
     /**
      * List of table names
      */
 
-    private static final String TABLE_MODULE = "modules";
-    private static final String TABLE_LESSON = "lesson";
-    private static final String TABLE_QUESTION = "question";
-    private static final String TABLE_VERSE = "verse";
-    private static final String TABLE_FAQ = "faq";
-    private static final String TABLE_LANG = "lang";
+    public static final String TABLE_MODULE = "modules";
+    public static final String TABLE_LESSON = "lesson";
+    public static final String TABLE_QUESTION = "question";
+    public static final String TABLE_VERSE = "verse";
+    public static final String TABLE_FAQ = "faq";
+    public static final String TABLE_LANG = "lang";
 
 
     /**
      * List of attributes for the Module table
      */
 
-    private static final String MODULE_ID ="_id" ;
-    private static final String MODULE_TITLE ="module_title" ;
-    private static final String MODULE_STARTING_LESSON = "module_st_lesson";
-    private static final String MODULE_CURRENT_LESSON ="module_cr_lesson" ;
-    private static final String MODULE_COVER_STAT = "module_cover_stat";
+    public static final String MODULE_ID ="_id" ;
+    public static final String MODULE_TITLE ="module_title" ;
+    public static final String MODULE_STARTING_LESSON = "module_st_lesson";
+    public static final String MODULE_CURRENT_LESSON ="module_cr_lesson" ;
+    public static final String MODULE_COVER_STAT = "module_cover_stat";
 
 
     /**
      * List of attributes for the Lesson table
      */
 
-    private static final String LESSON_ID = "lesson_id";
-    private static final String LESSON_MODULE = "lesson_module";
-    private static final String LESSON_TITLE = "lesson_title";
-    private static final String LESSON_STRING = "lesson_string";
-    private static final String _PR_LESSON = "_pr_lesson";
-    private static final String _NXT_LESSON = "_next_lesson";
-    private static final String LESSON_STARTING_QUESTION = "lesson_st_question";
-    private static final String LESSON_CURRENT_QUESTION = "lesson_current_question";
+    public static final String LESSON_ID = "lesson_id";
+    public static final String LESSON_MODULE = "lesson_module";
+    public static final String LESSON_TITLE = "lesson_title";
+    public static final String LESSON_STRING = "lesson_string";
+    public static final String _PR_LESSON = "_pr_lesson";
+    public static final String _NXT_LESSON = "_next_lesson";
+    public static final String LESSON_STARTING_QUESTION = "lesson_st_question";
+    public static final String LESSON_CURRENT_QUESTION = "lesson_current_question";
 
 
     /**
      * List of attributes for the question table
      */
 
-    private static final String QUESTION_ID = "question_id";
-    private static final String QUESTION = "question";
-    private static final String CHOICE_A = "choice_a";
-    private static final String CHOICE_B = "choice_b";
-    private static final String CHOICE_C = "choice_c";
-    private static final String CHOICE_D = "choice_d";
-    private static final String QUESTION_ANS = "question_ans";
-    private static final String QUESTION_HINT = "question_hint";
-    private static final String _PR_QUESTION = "_pr_question";
-    private static final String _NXT_QUESTION = "_nxt_question";
+    public static final String QUESTION_ID = "question_id";
+    public static final String QUESTION = "question";
+    public static final String CHOICE_A = "choice_a";
+    public static final String CHOICE_B = "choice_b";
+    public static final String CHOICE_C = "choice_c";
+    public static final String CHOICE_D = "choice_d";
+    public static final String QUESTION_ANS = "question_ans";
+    public static final String QUESTION_HINT = "question_hint";
+    public static final String _PR_QUESTION = "_pr_question";
+    public static final String _NXT_QUESTION = "_nxt_question";
 
 
     /**
      *  List of attributes for the verse table
      */
-    private static final String VERSE_ID = "verse_id";
-    private static final String VERSE_DISPLAY = "verse_display";
-    private static final String VERSE_STRING = "verse_string";
+    public static final String VERSE_ID = "verse_id";
+    public static final String VERSE_DISPLAY = "verse_display";
+    public static final String VERSE_STRING = "verse_string";
 
     /**
      * List of attributes for the faq
      */
 
-    private static final String FAQ_ID = "faq_id";
-    private static final String FAQ_QUESTION = "faq_question";
-    private static final String FAQ_ANSWER = "faq_answer";
+    public static final String FAQ_ID = "faq_id";
+    public static final String FAQ_QUESTION = "faq_question";
+    public static final String FAQ_ANSWER = "faq_answer";
 
     /**
      * List of attributes for the Lang
@@ -89,9 +90,9 @@ public class DBHandler extends SQLiteOpenHelper {
      * different languages.
      */
 
-    private static final String LANG_ID = "lang_id";
-    private static final String LANG_AMH = "lang_amh";
-    private static final String LANG_ENG = "lang_eng";
+    public static final String LANG_ID = "lang_id";
+    public static final String LANG_AMH = "lang_amh";
+    public static final String LANG_ENG = "lang_eng";
 
 
 
@@ -242,4 +243,6 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
 }

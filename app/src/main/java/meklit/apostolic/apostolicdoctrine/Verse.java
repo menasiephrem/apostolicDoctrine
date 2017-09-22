@@ -29,6 +29,17 @@ public class Verse {
     }
 
     public static Verse [] verses = {
+            new Verse("Is66:1", "Is66:1Display", "Is66:1String"),
+            new Verse("Ps139:7-10", "Ps139:7-10Display", "Ps139:7-10String"),
+            new Verse("Jobs11", "Jobs11Display", "Jobs11String"),
+            new Verse("1stkng8:12,13", "1stkng8:12,13Display", "1stkng8:12,13String"),
+            new Verse("jn1:1", "jn1:1Display", "jn1:1String"),
+            new Verse("hb1:2", "hb1:2Display", "hb1:2String"),
+            new Verse("is53", "is53Display", "is53String"),
+            new Verse("ps107:20", "ps107:20Display", "ps107:20String"),
+            new Verse("1stjn4:12", "1stjn4:12Display", "1stjn4:12String"),
+            new Verse("is55:11", "is55:11Display", "is55:11String"),
+            new Verse("Jer23:23", "Jer23:23Display", "Jer23:23String")
 
     };
 }

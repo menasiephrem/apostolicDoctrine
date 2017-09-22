@@ -7,10 +7,22 @@ package meklit.apostolic.apostolicdoctrine;
 public class Lesson {
 
     private String LESSON_ID;
-
     private String LESSON_MODULE;
     private String LESSON_TITLE;
     private String LESSON_STRING;
+
+    public Lesson(String LESSON_ID, String LESSON_MODULE, String LESSON_TITLE, String LESSON_STRING, String _PR_LESSON, String _NXT_LESSON,
+                  String LESSON_STARTING_QUESTION, String LESSON_CURRENT_QUESTION) {
+        this.LESSON_ID = LESSON_ID;
+        this.LESSON_MODULE = LESSON_MODULE;
+        this.LESSON_TITLE = LESSON_TITLE;
+        this.LESSON_STRING = LESSON_STRING;
+        this._PR_LESSON = _PR_LESSON;
+        this._NXT_LESSON = _NXT_LESSON;
+        this.LESSON_STARTING_QUESTION = LESSON_STARTING_QUESTION;
+        this.LESSON_CURRENT_QUESTION = LESSON_CURRENT_QUESTION;
+    }
+
     private String _PR_LESSON;
     private String _NXT_LESSON;
     private String LESSON_STARTING_QUESTION;
@@ -62,6 +74,10 @@ public class Lesson {
     }
 
     public static Lesson [] lessons = {
+            new Lesson("Mod1Less1", "Mod1", "Mod1Less1TitleWhoISGOD" , "Mod1Less1String" , "null" , "Mod1Less2" , "null"),
+            new Lesson("Mod1Less2", "Mod1", "Mod1Less2TitleGODidSprirt" , "Mod1Less2String" , "Mod1Less1" , "Mod1Less3" , "null"),
+            new Lesson("Mod1Less3", "Mod1", "Mod1Less3TitleGODIsWord" , "Mod1Less3String" , "Mod1Less2" , "Mod1Less4" , "null"),
+            new Lesson("Mod1Less4", "Mod1", "Mod1Less4TitleGODRightHand" , "Mod1Less4String" , "Mod1Less3" , "null" , "null")
 
     };
 }
