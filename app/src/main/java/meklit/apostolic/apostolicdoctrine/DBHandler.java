@@ -13,7 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHandler extends SQLiteOpenHelper {
     
     private static final String DATABASE_NAME = "doctrine.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     public static boolean langIsEnglish = true;
 
     /**
@@ -241,7 +241,21 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        if (oldVersion != newVersion) {
+            String query1= "drop table " + TABLE_LANG;
+            String query2 = "drop table " + TABLE_FAQ;
+            String query3 = "drop table " + TABLE_MODULE;
+            String query4 = "drop table " + TABLE_VERSE;
+            String query5 = "drop table " + TABLE_LESSON;
+            String query6 = "drop table " + TABLE_QUESTION;
+            db.execSQL(query1);
+            db.execSQL(query2);
+            db.execSQL(query3);
+            db.execSQL(query4);
+            db.execSQL(query5);
+            db.execSQL(query6);
+            onCreate(db);
+        }
     }
 
 

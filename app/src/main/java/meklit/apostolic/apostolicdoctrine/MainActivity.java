@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0){
+                if(position == 0||position == 1){
                     Intent intent = new Intent(MainActivity.this,LessonActivity.class)
-                            .putExtra(Intent.EXTRA_TEXT,modules.get(0).getMODULE_CURRENT_LESSON());
+                            .putExtra(Intent.EXTRA_TEXT,modules.get(position).getMODULE_CURRENT_LESSON());
                     startActivity(intent);
 
                 }

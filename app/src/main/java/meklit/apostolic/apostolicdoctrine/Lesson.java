@@ -77,7 +77,10 @@ public class Lesson {
             new Lesson("Mod1Less1", "Mod1", "Mod1Less1TitleWhoISGOD" , "Mod1Less1String" , "null" , "Mod1Less2" , "null"),
             new Lesson("Mod1Less2", "Mod1", "Mod1Less2TitleGODidSprirt" , "Mod1Less2String" , "Mod1Less1" , "Mod1Less3" , "null"),
             new Lesson("Mod1Less3", "Mod1", "Mod1Less3TitleGODIsWord" , "Mod1Less3String" , "Mod1Less2" , "Mod1Less4" , "null"),
-            new Lesson("Mod1Less4", "Mod1", "Mod1Less4TitleGODRightHand" , "Mod1Less4String" , "Mod1Less3" , "null" , "null")
+            new Lesson("Mod1Less4", "Mod1", "Mod1Less4TitleGODRightHand" , "Mod1Less4String" , "Mod1Less3" , "null" , "null"),
+            new Lesson("Mod2Less1", "Mod2", "Mod2Less1TitlewhatIsBible" , "Mod2Less1String" , "null" , "Mod2Less2" , "null"),
+            new Lesson("Mod2Less2", "Mod2", "Mod2Less2TitleOtandNt" , "Mod2Less2String" , "Mod2Less1" , "null" , "null")
+
 
     };
 }

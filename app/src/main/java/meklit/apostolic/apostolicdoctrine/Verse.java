@@ -39,7 +39,8 @@ public class Verse {
             new Verse("ps107:20", "ps107:20Display", "ps107:20String"),
             new Verse("1stjn4:12", "1stjn4:12Display", "1stjn4:12String"),
             new Verse("is55:11", "is55:11Display", "is55:11String"),
-            new Verse("Jer23:23", "Jer23:23Display", "Jer23:23String")
+            new Verse("Jer23:23", "Jer23:23Display", "Jer23:23String"),
+            new Verse("1stpt1:11", "1stpt1:11Display", "1stpt1:11String")
 
     };
 }

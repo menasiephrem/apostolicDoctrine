@@ -21,11 +21,14 @@ public class LessonActivity extends AppCompatActivity {
 
     Lesson curLesson;
     DBController controller;
-    TextView LessonStr,VerseDisp,VerseString;
-    String LessonID;
+    TextView LessonStr,VerseDisp,VerseString,ProText;
+    String LessonID,totalLessons;
     ImageButton NextLesson, PrevLesson;
     ArrayList<Verse> verse;
-    int currentVars;
+    int currentVars,porgress;
+    boolean firstTime;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +36,19 @@ public class LessonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lesson);
 
         controller = new DBController(this);
+        firstTime = true;
 
         LessonStr = (TextView) findViewById(R.id.LessonStr);
         VerseDisp = (TextView) findViewById(R.id.VerseTitle);
         VerseString = (TextView) findViewById(R.id.VerseStr);
+        ProText = (TextView) findViewById(R.id.progressTxt);
 
         NextLesson = (ImageButton) findViewById(R.id.buttonNxt);
         PrevLesson = (ImageButton) findViewById(R.id.buttonPrev);
 
-        LessonStr.setTextSize(22);
+        LessonStr.setTextSize(16);
         VerseDisp.setTextSize(22);
+        ProText.setTextSize(22);
         VerseString.setTextSize(16);
         verse = new ArrayList<>();
 
@@ -55,8 +61,10 @@ public class LessonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LessonID = curLesson.get_NXT_LESSON();
+                porgress=porgress+1;
                 updateLesson();
                 PrevLesson.setEnabled(true);
+
             }
         });
 
@@ -64,8 +72,10 @@ public class LessonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LessonID = curLesson.get_PR_LESSON();
+                porgress=porgress-1;
                 updateLesson();
                 NextLesson.setEnabled(true);
+
             }
         });
     }
@@ -96,7 +106,7 @@ public class LessonActivity extends AppCompatActivity {
             }
 
             updateLesson();
-            updateVersTV();
+            updateVerseTV();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -106,23 +116,24 @@ public class LessonActivity extends AppCompatActivity {
 
         curLesson = controller.getLesson(LessonID);
         getSupportActionBar().setTitle(curLesson.getLESSON_TITLE());
-
-        LessonStr.setText(extactVerse(curLesson.getLESSON_STRING()));
+        LessonStr.setText(extractVerse(curLesson.getLESSON_STRING()));
         LessonStr.setMovementMethod(LinkMovementMethod.getInstance());
         LessonStr.setHighlightColor(Color.TRANSPARENT);
-
         currentVars = verse.size()-1;
-        updateVersTV();
-
+        updateVerseTV();
         if (curLesson.get_PR_LESSON().equalsIgnoreCase("null"))
             PrevLesson.setEnabled(false);
         if (curLesson.get_NXT_LESSON().equalsIgnoreCase("null"))
             NextLesson.setEnabled(false);
-
+        if (firstTime){
+            totalLessons=controller.getLessonCount(curLesson.getLESSON_MODULE());
+            porgress =1;
+            firstTime = false;
+        }
+        ProText.setText("("+porgress+"/"+totalLessons+")");
     }
 
-    private SpannableString extactVerse(String str)
-    {
+    private SpannableString extractVerse(String str) {
         verse.clear();
 
         Stack<Integer> ChVers = new Stack<>();
@@ -166,34 +177,32 @@ public class LessonActivity extends AppCompatActivity {
             int b = ChIndex.pop();
 
 
-          ss.setSpan(new myClickbleSpan(i),b+1,a, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+          ss.setSpan(new myClickableSpan(i),b+1,a, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             i=i+1;
 
         }
       return ss;
     }
 
-    private void updateVersTV()
-    {
+    private void updateVerseTV() {
         if (currentVars >=0){
         VerseDisp.setText(verse.get(currentVars).getVERSE_DISPLAY());
         VerseString.setText(verse.get(currentVars).getVERSE_STRING());
         }
     }
 
-    public class myClickbleSpan extends ClickableSpan
-    {
+    public class myClickableSpan extends ClickableSpan {
         int pos;
 
 
-        public myClickbleSpan(int pos) {
+        public myClickableSpan(int pos) {
             this.pos = pos;
         }
 
         @Override
         public void onClick(View widget) {
             currentVars = pos;
-            updateVersTV();
+            updateVerseTV();
         }
     }
 }

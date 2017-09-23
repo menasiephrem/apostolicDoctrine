@@ -136,4 +136,21 @@ public class DBController {
 
         return ret;
     }
+
+    public String getLessonCount(String id)
+    {
+        String ret = "";
+        ArrayList<String> Lessons = new ArrayList();
+        String[] col = {DBHandler.LESSON_ID};
+        Cursor cursor = db.query(true, DBHandler.TABLE_LESSON, col, DBHandler.LESSON_MODULE +
+                "= '" + id + "'", null, null, null, null, null);
+
+        while (cursor.moveToNext()) {
+            int index = cursor.getColumnIndex(DBHandler.LESSON_ID);
+            Lessons.add(cursor.getString(index));
+        }
+        ret = Lessons.size()+"";
+        cursor.close();
+        return ret;
+    }
 }
